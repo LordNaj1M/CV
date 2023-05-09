@@ -1,0 +1,442 @@
+* {
+  margin: 0;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik";
+  transition: background-color 0.5s;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+}
+
+section {
+  border-bottom: 1px solid white;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+section.active {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.nav-button {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  left: 50px;
+  top: 50px;
+  z-index: 10;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: 1s;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  transform: rotate(360deg);
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  font-family: "Roboto Mono";
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #818181;
+}
+
+.sidenav-choice a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: color 2s;
+}
+
+.sidenav-choice a:hover {
+  color: #375e9e;
+  text-decoration: overline underline 4px;
+}
+
+.sidenav-choice a.active {
+  color: #375e9e;
+  text-decoration: overline underline 4px;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+#homepage {
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px 2px #343434, 0 0 25px #62a388, 0 0 5px #055e68,
+    0 0 15px #00bfff;
+  text-align: left;
+  padding-top: 20%;
+  padding-left: 10%;
+}
+
+#homepage h1 {
+  font-family: "Roboto Mono";
+  font-size: 60px;
+}
+
+#homepage a {
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+#homepage .linked img {
+  width: 5vh;
+  border-radius: 50%;
+  padding: 14px;
+  margin: 5px;
+  float: left;
+  background: rgba(255, 255, 255, 0.8);
+  transition: 1s;
+}
+
+#homepage .linked img:hover {
+  width: 7vh;
+  transform: rotate(360deg);
+  background: rgba(255, 255, 255);
+}
+
+.title {
+  font-family: "Roboto Mono";
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.title::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 1px;
+  background: #fff;
+  top: 45px;
+  bottom: 1px;
+  left: calc(50% - 100px);
+}
+
+.title::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 8px;
+  background: #00bfff;
+  bottom: 0;
+  left: calc(50% - 50px);
+}
+
+#about {
+  background-color: rgb(5, 94, 104);
+  color: #62a388;
+}
+
+#myCarousel {
+  height: 100vh;
+}
+
+.carousel-indicators {
+  padding: 15px;
+}
+
+.about .title {
+  color: #3bcf91;
+}
+
+.about .title-sub {
+  font-family: "Roboto Mono";
+  color: #b8d6ca;
+  margin-bottom: 20px;
+}
+
+.about-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 10%;
+  height: 100vh;
+}
+
+.about-me img {
+  border: solid black;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.about-me img:hover {
+  opacity: 0.7;
+}
+
+@media only screen and (max-width: 600px) {
+  .about-me img {
+    border: solid black;
+    max-width: 40%;
+  }
+}
+
+.about-me ul {
+  padding-top: 15px;
+}
+
+.about-me li {
+  font-size: x-large;
+  padding: 5px;
+}
+
+.edu-organiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 10%;
+  height: 100vh;
+}
+
+.edu-organiz-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid #00bfff;
+  position: relative;
+}
+
+.edu-organiz-item.last {
+  padding-bottom: 0 !important;
+}
+
+.edu-organiz-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #fff;
+  border: 2px solid #00bfff;
+}
+
+.edu-organiz-item h3 {
+  margin-top: 0;
+  color: #00bfff;
+}
+
+.edu-organiz-item h4 {
+  font-size: 16px;
+  background: rgb(5, 84, 94);
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.edu-organiz-item p,
+.edu-organiz-item li {
+  font-size: larger;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 10%;
+  height: 100vh;
+  margin: 0;
+}
+
+.skills {
+  margin: 0;
+}
+
+.skill {
+  height: 60px;
+  display: block;
+  border-radius: 0;
+  font-size: larger;
+}
+
+.value {
+  float: right;
+  font-style: normal;
+}
+
+.interests {
+  margin-top: 100px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  padding-block: 20px;
+  padding-left: 5vh;
+  background: rgba(255, 255, 255, 0.1);
+  transition: ease-in-out 0.3s;
+}
+
+.box:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.box h3 {
+  font-weight: 800;
+  margin-left: 3vh;
+  padding: 0;
+}
+
+#portfolio {
+  background-color: rgb(98, 163, 136);
+  color: #343434;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 10%;
+  height: 100vh;
+}
+
+.portfolio .title {
+  color: white;
+}
+
+.card-img-top {
+  width: 30vh;
+}
+
+.card-body {
+  margin-left: 20px;
+}
+
+#contact {
+  background-color: rgb(185, 210, 210);
+  color: #055e68;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.contact-me {
+  margin: 0;
+}
+
+.contact-me .box {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.contact-me .box:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.bx {
+  border-radius: 50%;
+  padding: 14px;
+  float: left;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.bx img {
+  width: 4vh;
+}
+
+.box .more {
+  padding-left: 3vh;
+}
+
+.box .more h3 {
+  margin-left: 0 !important;
+}
+
+.socmed.more img {
+  width: 3vh;
+  padding-block: 0;
+  margin-inline: 5px;
+}
+
+.box.socmed h3 {
+  margin-block: 0 !important;
+}
+
+#inputGroupPrepend2 {
+  font-size: 15px;
+}
+
+#validationDefaultUsername {
+  margin-left: 8px;
+}
+
+.title.email::after,
+.title.email::before {
+  content: none;
+}
+
+.credits {
+  position: fixed;
+  font-family: "Roboto Mono";
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 15px;
+  text-align: right;
+  font-size: 14px;
+  color: #fff;
+  z-index: 999999;
+}
+
+.credits a {
+  color: #00bfff;
+  transition: 0.4s;
+}
+
+.credits a:hover {
+  color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  .credits {
+    text-align: center;
+    padding: 7px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
