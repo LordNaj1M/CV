@@ -1,6 +1,6 @@
 // Event listener saat halaman selesai dimuat atau selesai di-refresh
 window.addEventListener("load", function () {
-  alert("Gunakan tampilan desktop(>1320x835p), mohon maaf responsive belum dibuat");
+  alert("Gunakan tampilan desktop(>1320x835px , 100% scale), mohon maaf responsive belum dibuat");
   // Mengatur posisi scroll ke atas halaman
   window.scrollTo(0, 0);
 });
